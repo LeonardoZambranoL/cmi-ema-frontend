@@ -4,8 +4,8 @@ type Props = {
 
 export default function SmallHeader({ content }: Props) {
   return (
-    <div>
-      <h1 className="text-center font-bold text-sm md:text-lg lg:text-xl">{content}</h1>
-    </div>
+    <span className="flex flex-row justify-center">
+      <span className="text-center font-bold text-sm md:text-lg lg:text-xl">{content}</span>
+    </span>
   );
 }
