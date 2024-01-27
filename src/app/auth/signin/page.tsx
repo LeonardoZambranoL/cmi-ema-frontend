@@ -1,6 +1,7 @@
+'use client'
+import VoidPrimaryButton from "@/components/Buttons/VoidPrimaryButton";
 import MediumHeader from "@/components/Headers/MediumHeader";
 import SmallHeader from "@/components/Headers/SmallHeader";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -11,29 +12,29 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
-type Props = {
-  content: string;
-};
-
-export default function page({ content }: Props) {
+export default function page() {
   return (
-    <div className="flex justify-center items-center">
-      <div className="flex flex-row justify-between">
-        <Card className="max-w-50">
+    <div className="ml-2 mr-2 md:grid md:grid-cols-12">
+      <div className="md:col-span-2 lg:col-span-4" />
+      <div className="sm:col-span-10 md:col-span-8 lg:col-span-4 my-40">
+        <div className="" />
+        <Card>
           <CardHeader>
             <CardTitle>
               <MediumHeader content="Ya pues registrate." />
             </CardTitle>
             <CardDescription>
-                <SmallHeader content="Cual es pues cual es?" />
+              <SmallHeader content="Cual es pues cual es?" />
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col gap-10">
-              <Input type="email" placeholder="ema@ema.com" />
-              <Input type="password" placeholder="Queressapo" />
+            <Input type="email" placeholder="ema@ema.com" />
+            <Input type="password" placeholder="Queressapo" />
           </CardContent>
-          <CardFooter>
-            <Button className="w-full"><b>Daaaale</b></Button>
+          <CardFooter className="w-full flex flex-row justify-center">
+            <div className="w-full lg:w-7/12">
+              <VoidPrimaryButton content="DALEE" voidFunc={() => {}} />
+            </div>
           </CardFooter>
         </Card>
       </div>
