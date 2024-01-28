@@ -1,11 +1,14 @@
-type Props = {
-  content: string;
-};
+import { ReactNode } from "react";
 
-export default function MediumHeader({ content }: Props) {
+type Props = {
+    children: ReactNode;
+}
+
+
+export default function MediumHeader({ children }: Props) {
   return (
     <div className="container flex flex-col items-center text-center w-full">
-      <h1 className="font-bold text-2xl md:text-4xl lg:text-5xl">{content}</h1>
+      <h1 className="font-bold text-2xl md:text-4xl lg:text-5xl">{children}</h1>
     </div>
   );
 }
