@@ -11,9 +11,9 @@ const NavbarLinks = ({ className }: Props) => {
     <>
       <NavbarSection name="Home" href="/" className={className} />
 
-      <NavbarSection name="About" href="/" className={className} />
-      <NavbarSection name="Services" href="/" className={className} />
-      <NavbarSection name="Contact" href="/" className={className} />
+      <NavbarSection name="About" href="/about" className={className} />
+      <NavbarSection name="Olimpiadas" href="/olympics" className={className} />
+      <NavbarSection name="Contacto" href="/contact" className={className} />
     </>
   );
 };

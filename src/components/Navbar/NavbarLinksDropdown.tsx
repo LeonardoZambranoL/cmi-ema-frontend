@@ -6,37 +6,31 @@ import { faSignOut } from "@fortawesome/free-solid-svg-icons/faSignOut";
 
 type Props = {
   className: string;
-}
+};
 
-const NavbarLinks = ({className}: Props) => {
+const NavbarLinks = ({ className }: Props) => {
   className = `flex items-center justify-center ${className}`;
   return (
     <>
       <DropdownMenuItem>
         <NavbarSection name="Home" href="/" className={className} />
       </DropdownMenuItem>
-      <DropdownMenuItem><NavbarSection
-        name="About"
-        href="/"
-        className={className}
-      /></DropdownMenuItem>
+      <DropdownMenuItem>
+        <NavbarSection name="About" href="/about" className={className} />
+      </DropdownMenuItem>
       <DropdownMenuItem>
         <NavbarSection
-          name="Services"
-          href="/"
+          name="Olimpiadas"
+          href="/olympics"
           className={className}
         />
       </DropdownMenuItem>
       <DropdownMenuItem>
-        <NavbarSection
-          name="Contact"
-          href="/"
-          className={className}
-        />
+        <NavbarSection name="Contact" href="/contact" className={className} />
       </DropdownMenuItem>
       <DropdownMenuSeparator />
       <DropdownMenuItem>
-        <FontAwesomeIcon icon={faSignOut}/>
+        <FontAwesomeIcon icon={faSignOut} />
         <NavbarSection
           name="&nbsp;&nbsp;Logout"
           href="/"
