@@ -9,33 +9,31 @@ type Props = {
 };
 
 const NavbarLinks = ({ className }: Props) => {
-  className = `flex items-center justify-center ${className}`;
   return (
     <>
-      <DropdownMenuItem>
-        <NavbarSection name="Home" href="/" className={className} />
+      <DropdownMenuItem asChild>
+        <NavbarSection name="Home" href="/" className={className}></NavbarSection>
       </DropdownMenuItem>
-      <DropdownMenuItem>
-        <NavbarSection name="About" href="/about" className={className} />
+      <DropdownMenuItem asChild>
+        <NavbarSection name="About" href="/about" className={className}></NavbarSection>
       </DropdownMenuItem>
-      <DropdownMenuItem>
+      <DropdownMenuItem asChild>
         <NavbarSection
           name="Olimpiadas"
           href="/olympics"
           className={className}
-        />
+        ></NavbarSection>
       </DropdownMenuItem>
-      <DropdownMenuItem>
-        <NavbarSection name="Contact" href="/contact" className={className} />
+      <DropdownMenuItem asChild className="flex flex-row justify-start">
+        <NavbarSection name="Contact" href="/contact" className={className}></NavbarSection>
       </DropdownMenuItem>
       <DropdownMenuSeparator />
-      <DropdownMenuItem>
-        <FontAwesomeIcon icon={faSignOut} />
+      <DropdownMenuItem asChild>
         <NavbarSection
           name="&nbsp;&nbsp;Logout"
           href="/"
           className={className}
-        />
+        ><FontAwesomeIcon icon={faSignOut} /></NavbarSection>
       </DropdownMenuItem>
     </>
   );

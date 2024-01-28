@@ -17,7 +17,7 @@ import { Button } from "../ui/button";
 function Navbar() {
   //bg-gray-900
   return (
-    <header className="bg-inherit p-4 justify-between items-center flex flex-col shadow-md sticky top-0 z-50">
+    <header className="bg-inherit p-4 justify-between items-center flex flex-col sticky top-0 z-50 shadow-md drop-shadow-lg">
       <div className="flex md:flex-row w-11/12 md:w-4/5 justify-between">
         <div className="flex flex-row gap-10">
           <Link href="/" className="flex flex-row gap-3">
@@ -54,7 +54,7 @@ function Navbar() {
             <DropdownMenuContent>
               <DropdownMenuLabel>Menu</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <NavbarLinksDropdown className="" />
+              <NavbarLinksDropdown className=""/>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
