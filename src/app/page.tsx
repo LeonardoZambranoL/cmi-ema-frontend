@@ -3,7 +3,6 @@ import BigHeader from "@/components/Headers/BigHeader";
 import MediumHeader from "@/components/Headers/MediumHeader";
 import SmallHeader from "@/components/Headers/SmallHeader";
 import { Logo } from "@/components/Logo";
-import UnorderedList from "@/components/Paragraph/UnorderedList";
 import MutedParagraph from "@/components/Paragraph/MutedParagraph";
 import {
   Accordion,
@@ -15,9 +14,8 @@ import { FAQType } from "./types";
 
 export default function Home() {
   const title = "I REALLY DO NOT NOT NOT NOT DO NOT KNOW WHAT TO DO!";
-  const paragraph = `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-  nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-  sed diam voluptua. At vero eos et accusam et justo duo dolores et ea`;
+  const paragraph =
+    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea";
   const faqs: FAQType[] = [
     {
       question: "Paises participantes",
