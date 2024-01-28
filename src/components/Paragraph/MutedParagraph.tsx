@@ -1,12 +1,14 @@
-type Props = {
-  content: string;
-};
+import { ReactNode } from "react";
 
-export default function MutedParagraph({ content }: Props) {
+type Props = {
+    children: ReactNode;
+}
+
+export default function MutedParagraph({ children }: Props) {
   return (
     <div className="container flex flex-col items-center text-center md:w-9/12 lg:w-7/12">
       <span className="text-sm md:text-lg lg:text-xl text-muted-foreground">
-        {content}
+        {children}
       </span>
     </div>
   );
