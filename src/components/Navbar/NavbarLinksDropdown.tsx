@@ -12,10 +12,18 @@ const NavbarLinks = ({ className }: Props) => {
   return (
     <>
       <DropdownMenuItem asChild>
-        <NavbarSection name="Home" href="/" className={className}></NavbarSection>
+        <NavbarSection
+          name="Home"
+          href="/"
+          className={className}
+        ></NavbarSection>
       </DropdownMenuItem>
       <DropdownMenuItem asChild>
-        <NavbarSection name="About" href="/about" className={className}></NavbarSection>
+        <NavbarSection
+          name="About"
+          href="/about"
+          className={className}
+        ></NavbarSection>
       </DropdownMenuItem>
       <DropdownMenuItem asChild>
         <NavbarSection
@@ -25,15 +33,24 @@ const NavbarLinks = ({ className }: Props) => {
         ></NavbarSection>
       </DropdownMenuItem>
       <DropdownMenuItem asChild className="flex flex-row justify-start">
-        <NavbarSection name="Contact" href="/contact" className={className}></NavbarSection>
+        <NavbarSection
+          name="Recursos"
+          href="/resources"
+          className={className}
+        />
+      </DropdownMenuItem>
+      <DropdownMenuItem asChild className="flex flex-row justify-start">
+        <NavbarSection
+          name="Contact"
+          href="/contact"
+          className={className}
+        ></NavbarSection>
       </DropdownMenuItem>
       <DropdownMenuSeparator />
       <DropdownMenuItem asChild>
-        <NavbarSection
-          name="&nbsp;&nbsp;Logout"
-          href="/"
-          className={className}
-        ><FontAwesomeIcon icon={faSignOut} /></NavbarSection>
+        <NavbarSection name="&nbsp;&nbsp;Logout" href="/" className={className}>
+          <FontAwesomeIcon icon={faSignOut} />
+        </NavbarSection>
       </DropdownMenuItem>
     </>
   );
