@@ -43,9 +43,7 @@ export default function Home() {
             {faqs.map((faq, index) => (
               <AccordionItem value={String(index)} key={index}>
                 <AccordionTrigger>
-                  <div className="w-full md:w-auto">
                     <SmallHeader> {faq.question} </SmallHeader>
-                  </div>
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="mx-2">

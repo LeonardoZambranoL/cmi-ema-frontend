@@ -10,19 +10,19 @@ export function cn(...inputs: ClassValue[]) {
 export function getFAQ(){
   const faqs: FAQType[] = [
     {
+      question: "Prueba y Niveles",
+      answer:
+        "Se contará con una sola fase virtual de 4 problemas con una calificación de 7 puntos cada uno y será dividida en dos niveles:\n\n•Smooth: Dirigida a estudiantes de Básico Superior (8vo - 10mo)\n•Heavy: Dirigida a estudiantes de Bachillerato (1ro - 3ro)\n\nLa prueba tendrá una duración diferente para cada nivel: *3.5 horas para el nivel Smooth y 4 horas para Heavy*. Una vez terminado este tiempo, habrá media hora adicional para el proceso de escaneo y envío.",
+    },
+    {
       question: "Países participantes",
       answer:
         "•Ecuador\n•Bolivia\n•República Dominicana\n•Chile\n•Panamá\n•El Salvador",
     },
     {
-      question: "Prueba y Niveles",
-      answer:
-        "Se contará con una sola fase virtual de 4 problemas con una calificación de 7 puntos cada uno y será dividida en dos niveles:\n\n•Smooth:** Dirigida a estudiantes de Básico Superior (8vo - 10mo)\n•Heavy: Dirigida a estudiantes de Bachillerato (1ro - 3ro)\n\nLa prueba tendrá una duración diferente para cada nivel: *3.5 horas para el nivel Smooth y 4 horas para Heavy*. Una vez terminado este tiempo, habrá media hora adicional para el proceso de escaneo y envío.",
-    },
-    {
       question: "¿Qué plataformas se usarán?",
       answer:
-        "Usaremos las plataformas de [hay que ver] para la prueba y [Zoom] para la supervisión de la misma. Se dará mayor información sobre estas herramientas antes de la prueba, por favor estar atentos a su correo electrónico, pues este es nuestro principal medio de comunicación con los participantes.",
+        "Usaremos las plataformas de -hay que ver- para la prueba y Zoom para la supervisión de la misma. Se dará mayor información sobre estas herramientas antes de la prueba, por favor estar atentos a su correo electrónico, pues este es nuestro principal medio de comunicación con los participantes.",
     },
     {
       question: "¿Qué temas se tratan en la olimpiada?",
