@@ -23,7 +23,7 @@ export default function Home() {
     <TwoLinkButtons
       callToActionContent="Inscríbete"
       otherContent="Más infos"
-      callToActionLink="/auth/signin"
+      callToActionLink="/auth/signup"
       otherLink="/about"
     ></TwoLinkButtons>
   );
