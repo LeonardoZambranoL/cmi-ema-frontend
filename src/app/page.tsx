@@ -12,16 +12,16 @@ import {
 } from "@/components/ui/accordion";
 import { getFAQ } from "@/lib/utils";
 
-
 export default function Home() {
-  const title = "Bienvenido a la CMI edición 2024";
+  const title = "Competencia Matemática Intercolegial CMI 2024";
   const paragraph =
-    "· Guess who's back? Guess who's back? Guess who's back? Guess who's back? Guess who's back? Guess who's back? Guess who's back? Guess who's back? Guess ...";
+    "¡Bienvenidos a la Competencia Matemática Intercolegial CMI 2024! Este año, nuestra edición anual se enorgullece de acoger a un mayor número de países, colegios y participantes.";
+
   const faqTitle = "Preguntas frecuentes";
   const faqs = getFAQ();
   const inscribete = (
     <TwoLinkButtons
-      callToActionContent="Inscribete"
+      callToActionContent="Inscríbete"
       otherContent="Más infos"
       callToActionLink="/auth/signin"
       otherLink="/about"
@@ -37,7 +37,7 @@ export default function Home() {
           <MutedParagraph> {paragraph} </MutedParagraph>
           <div>{inscribete}</div>
         </div>
-        <div className="container items-start md:mt-5">
+        <div className="container items-start mb-10 md:mt-5">
           <MediumHeader> {faqTitle} </MediumHeader>
           <Accordion type="single" collapsible>
             {faqs.map((faq, index) => (
