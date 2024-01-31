@@ -6,6 +6,6 @@ type Props = {
     className: string;
 }
 
-export const Logo = ({dimension, className}: Props) => {
+export default function Logo({dimension, className}: Props){
   return <Image src="/logo.png" width={dimension} height={dimension} alt="" className={className}/>;
 };

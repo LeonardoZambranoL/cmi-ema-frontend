@@ -2,7 +2,7 @@ import TwoLinkButtons from "@/components/Buttons/TwoLinkButtons";
 import BigHeader from "@/components/Headers/BigHeader";
 import MediumHeader from "@/components/Headers/MediumHeader";
 import SmallHeader from "@/components/Headers/SmallHeader";
-import { Logo } from "@/components/Logo";
+import Logo from "@/components/Logo";
 import MutedParagraph from "@/components/Paragraph/MutedParagraph";
 import {
   Accordion,
@@ -10,38 +10,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQType } from "./types";
+import { getFAQ } from "@/lib/utils";
+
 
 export default function Home() {
-  const title = "GUESS WHO'S BACK, BACK AGAIN!\nSHADY'S BACK, TELL A FRIEND.";
+  const title = "Bienvenido a la CMI edición 2024";
   const paragraph =
     "· Guess who's back? Guess who's back? Guess who's back? Guess who's back? Guess who's back? Guess who's back? Guess who's back? Guess who's back? Guess ...";
-  const faqs: FAQType[] = [
-    {
-      question: "Paises participantes",
-      answer: "Ecuador\nBolivia\nRepublica dominicana\nFriends",
-    },
-    {
-      question: "Que andas pregunton hoydia?",
-      answer:
-        "Asi parece\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam",
-    },
-    {
-      question: "Que te cuento? Que te cuento?",
-      answer:
-        "Un cuento\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-    },
-    {
-      question: "Ya pues que quieres?",
-      answer:
-        "No se\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,",
-    },
-    {
-      question: "Tu andas de sapo?",
-      answer:
-        "Siempre!\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,",
-    },
-  ];
+  const faqTitle = "Preguntas frecuentes";
+  const faqs = getFAQ();
   const inscribete = (
     <TwoLinkButtons
       callToActionContent="Inscribete"
@@ -61,7 +38,7 @@ export default function Home() {
           <div>{inscribete}</div>
         </div>
         <div className="container items-start md:mt-5">
-          <MediumHeader> FAQ </MediumHeader>
+          <MediumHeader> {faqTitle} </MediumHeader>
           <Accordion type="single" collapsible>
             {faqs.map((faq, index) => (
               <AccordionItem value={String(index)} key={index}>
