@@ -63,3 +63,40 @@ export function getFAQ(){
 
   return faqs;
 }
+
+
+
+export function getCountries(){
+  const countries: string[] = ["Ecuador", "República Dominicana", "Panamá", "Venezuela"];
+  return countries;
+}
+
+export function getSchoolByBountry(country: string){
+  const schoolCountriesMap = {
+    "Ecuador":[
+      "IPAC", 
+      "Americano", 
+      "Liceo", 
+      "Espiritu Santo"
+    ], 
+    "República Dominicana":[
+      "República 1", 
+      "República 2", 
+      "República 3", 
+      "República 4"
+    ], 
+    "Panamá":[
+      "Panamá 1", 
+      "Panamá 2", 
+      "Panamá 3", 
+      "Panamá 4"
+    ], 
+    "Venezuela":[
+      "Venezuela 1", 
+      "Venezuela 2", 
+      "Venezuela 3", 
+      "Venezuela 4"
+    ]
+    };
+  return schoolCountriesMap[country];
+}
