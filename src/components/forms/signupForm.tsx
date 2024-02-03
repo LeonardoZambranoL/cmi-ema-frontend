@@ -1,3 +1,4 @@
+"use client";
 import { useFormik } from "formik";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
@@ -11,6 +12,8 @@ import {
 import VoidPrimaryButton from "../Buttons/VoidPrimaryButton";
 import { getCountries, getSchoolByBountry } from "@/lib/utils";
 import { useState } from "react";
+
+const countries = getCountries();
 
 const validate = (values) => {
   const errors = {};
@@ -35,6 +38,25 @@ const validate = (values) => {
     errors.email = "El email no es valido";
   }
 
+  console.log(values.country);
+  if (!values.country) {
+    errors.country = "Necesario";
+  } else {
+    let isValidCountry = false;
+    for (let country of countries) {
+      if (values.country == country) {
+        isValidCountry = true;
+      }
+    }
+    if (!isValidCountry) {
+      errors.country = "wtf";
+    }
+  }
+
+  if (!values.school) {
+    errors.school = "Necesario";
+  }
+
   return errors;
 };
 
@@ -54,6 +76,8 @@ export default function SignupForm() {
       email: "",
 
       country: "",
+
+      school: "",
     },
 
     validate,
@@ -62,33 +86,37 @@ export default function SignupForm() {
       alert(JSON.stringify(values, null, 2));
     },
   });
-  function genError(content: string) {
-    return <div className="text-red-400">{content}</div>;
+  function genError(content: string | undefined) {
+    if (content) {
+      return (
+        <div className="text-red-400 text-sm font-semibold">{content}</div>
+      );
+    } else {
+      return null;
+    }
   }
   const firstNameInput = (
     <div>
       <Label htmlFor="firstName">First Name</Label>
       <Input
-        id="firstName"
         name="firstName"
         type="text"
         onChange={formik.handleChange}
         value={formik.values.firstName}
       />
-      {formik.errors.firstName ? genError(formik.errors.firstName) : null}
+      {genError(formik.errors.firstName)}
     </div>
   );
   const lastNameInput = (
     <div>
       <Label htmlFor="lastName">Last Name</Label>
       <Input
-        id="lastName"
         name="lastName"
         type="text"
         onChange={formik.handleChange}
         value={formik.values.lastName}
       />
-      {formik.errors.lastName ? genError(formik.errors.lastName) : null}
+      {genError(formik.errors.lastName)}
     </div>
   );
 
@@ -97,49 +125,60 @@ export default function SignupForm() {
       <Label htmlFor="email">Email Address</Label>
 
       <Input
-        id="email"
         name="email"
         type="email"
         onChange={formik.handleChange}
         value={formik.values.email}
       />
-      {formik.errors.email ? genError(formik.errors.email) : null}
+      {genError(formik.errors.email)}
     </div>
   );
 
-  const countries = getCountries();
-  const [countryValue, setCountryValue] = useState("");
   const countryInput = (
     <div>
       <Label htmlFor="country">Pais</Label>
-
-      <Select name="country">
+      <Select
+        name="country"
+        onValueChange={(e) => formik.setFieldValue("country", e, true)}
+        value={formik.values.country}
+      >
         <SelectTrigger className="">
           <SelectValue placeholder="Pais" />
         </SelectTrigger>
-        <SelectContent onChange={(e) => setCountryValue(e.target.value)}>
-          {countries.map((country) => (
-            <SelectItem value={country}>{country}</SelectItem>
+        <SelectContent>
+          {countries.map((country: string, index: number) => (
+            <SelectItem key={index} value={country}>
+              {country}
+            </SelectItem>
           ))}
         </SelectContent>
       </Select>
+      {genError(formik.errors.country)}
     </div>
   );
 
   const schoolInput = (
     <div>
-      <Label htmlFor="country">Colegio</Label>
-
-      <Select name="country">
+      <Label htmlFor="school">Colegio</Label>
+      <Select
+        name="school"
+        onValueChange={(e) => formik.setFieldValue("school", e, true)}
+        value={formik.values.school}
+      >
         <SelectTrigger className="">
           <SelectValue placeholder="Colegio" />
         </SelectTrigger>
         <SelectContent>
-          {getSchoolByBountry("Ecuador").map((school) => (
-            <SelectItem value={school}>{school}</SelectItem>
-          ))}
+          {getSchoolByBountry(formik.values.country).map(
+            (school: string, index: number) => (
+              <SelectItem key={index} value={school}>
+                {school}
+              </SelectItem>
+            )
+          )}
         </SelectContent>
       </Select>
+      {genError(formik.errors.school)}
     </div>
   );
 

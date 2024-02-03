@@ -72,6 +72,9 @@ export function getCountries(){
 }
 
 export function getSchoolByBountry(country: string){
+  if (!country){
+    return [];
+  }
   const schoolCountriesMap = {
     "Ecuador":[
       "IPAC", 
