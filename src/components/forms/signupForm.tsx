@@ -1,4 +1,3 @@
-"use client";
 import { useFormik } from "formik";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
@@ -11,12 +10,12 @@ import {
 } from "@/components/ui/select";
 import VoidPrimaryButton from "../Buttons/VoidPrimaryButton";
 import { getCountries, getSchoolByBountry } from "@/lib/utils";
-import { useState } from "react";
+import {SingUpFormType} from "./types"
 
 const countries = getCountries();
 
-const validate = (values) => {
-  const errors = {};
+const validate = (values : SingUpFormType) => {
+  const errors: SingUpFormType = {};
   if (!values) {
   }
 

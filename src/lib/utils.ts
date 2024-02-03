@@ -101,5 +101,11 @@ export function getSchoolByBountry(country: string){
       "Venezuela 4"
     ]
     };
-  return schoolCountriesMap[country];
+    switch (country){
+      case "Ecuador": return schoolCountriesMap.Ecuador;
+      case "República Dominicana" : return schoolCountriesMap["República Dominicana"];
+      case "Panamá": return schoolCountriesMap.Panamá;
+      case "Venezuela": return schoolCountriesMap.Venezuela;
+    }
+    return [];
 }
