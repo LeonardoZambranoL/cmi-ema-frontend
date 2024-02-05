@@ -47,7 +47,7 @@ export default function Page() {
         <div className="sm:col-span-10 md:col-span-8 lg:col-span-4 my-48">
           <Card className={`rounded-none`}>
             <div className="grid grid-cols-12">
-              <div className="bg-[url('/orange_bg.png')] col-span-2 md:col-span-3"></div>
+              <div className="bg-[url('/bgOrange.png')] col-span-2 md:col-span-3"></div>
               <div className="col-span-10 md:col-span-9">
                 <CardHeader>
                   <CardTitle>
@@ -82,8 +82,8 @@ export default function Page() {
         <div className="sm:col-span-10 md:col-span-8 lg:col-span-4 my-48">
           <Card className={`rounded-none`}>
             <div className="grid grid-cols-12">
-              <div className="bg-[url('/fondo.png')] col-span-1"></div>
-              <div className="col-span-11">
+              <div className="bg-[url('/bgOrangeRotate.png')] col-span-1"></div>
+              <div className="col-span-10">
                 <CardHeader>
                   <CardTitle>
                     <MediumHeader>Formulario</MediumHeader>
@@ -95,6 +95,7 @@ export default function Page() {
                 </CardContent>
                 <CardFooter className="w-full flex flex-row justify-center"></CardFooter>
               </div>
+              <div className="bg-[url('/bgOrangeRotate.png')] rotate-180 col-span-1"></div>
             </div>
           </Card>
         </div>
@@ -102,16 +103,5 @@ export default function Page() {
     </>
   );
 
-  function createPage(children: ReactNode) {
-    const content = (
-      <Card className={`rounded-none`}>
-        <div className="grid grid-cols-12">
-          <div className="bg-[url('/orange_bg.png')] col-span-2 md:col-span-3"></div>
-          <div className="col-span-10 md:col-span-9">{children}</div>
-        </div>
-      </Card>
-    );
-    return content;
-  }
   return <>{!start ? startPage : formPage}</>;
 }

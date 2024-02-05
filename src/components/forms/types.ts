@@ -4,4 +4,6 @@ export type SingUpFormType = {
     email?: string;
     country?: string;
     school?: string;
+    newSchool?: string;
+    birth?: string;
 }

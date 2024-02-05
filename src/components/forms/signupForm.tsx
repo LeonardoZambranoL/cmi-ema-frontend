@@ -10,11 +10,15 @@ import {
 } from "@/components/ui/select";
 import VoidPrimaryButton from "../Buttons/VoidPrimaryButton";
 import { getCountries, getSchoolByBountry } from "@/lib/utils";
-import {SingUpFormType} from "./types"
+import { SingUpFormType } from "./types";
+import { Separator } from "@/components/ui/separator";
+import { CountryType, SchoolType } from "@/app/types";
 
 const countries = getCountries();
+const schoolNotListedItemText = "Mi colegio no está en la lista";
+const schoolNotListedItemValue = "newSchool";
 
-const validate = (values : SingUpFormType) => {
+const validate = (values: SingUpFormType) => {
   const errors: SingUpFormType = {};
   if (!values) {
   }
@@ -37,25 +41,47 @@ const validate = (values : SingUpFormType) => {
     errors.email = "El email no es valido";
   }
 
-  console.log(values.country);
   if (!values.country) {
     errors.country = "Necesario";
-  } else {
-    let isValidCountry = false;
-    for (let country of countries) {
-      if (values.country == country) {
-        isValidCountry = true;
+  } else if (Object.keys(countries).includes(values.country)) {
+    const schools = Object.values(getSchoolByBountry(values.country));
+    const schoolIds = schools.map((school) => school.id);
+    const schoolNames = schools.map((school) => school.name);
+    if (!values.school) {
+      errors.school = "Necesario";
+    } else if (values.school == schoolNotListedItemValue) {
+      if (!values.newSchool) {
+        errors.newSchool = "Necesario";
+      } else {
+        if (schoolNames.includes(values.newSchool)) {
+          errors.newSchool = "El colegio si está en la lista";
+        }
+        if (values.newSchool.length < 3) {
+          errors.newSchool = "Invalido";
+        }
+      }
+    } else {
+      if (!schoolIds.includes(values.school)) {
+        errors.newSchool = "wtf";
       }
     }
-    if (!isValidCountry) {
-      errors.country = "wtf";
+  } else {
+    errors.country = "wtf";
+  }
+
+  if (!values.birth) {
+    errors.birth = "Necesario";
+  } else {
+    const birth = new Date(values.birth);
+    if (isNaN(birth.getTime())) {
+      errors.birth = "Fecha invalida";
+    }
+    const currentDate = new Date();
+    currentDate.setFullYear(2020);
+    if (birth >= currentDate) {
+      errors.birth = "Fecha invalida";
     }
   }
-
-  if (!values.school) {
-    errors.school = "Necesario";
-  }
-
   return errors;
 };
 
@@ -77,6 +103,10 @@ export default function SignupForm() {
       country: "",
 
       school: "",
+
+      newSchool: "",
+
+      birth: "",
     },
 
     validate,
@@ -121,8 +151,7 @@ export default function SignupForm() {
 
   const emailInput = (
     <div>
-      <Label htmlFor="email">Email Address</Label>
-
+      <Label htmlFor="email">Email</Label>
       <Input
         name="email"
         type="email"
@@ -142,17 +171,29 @@ export default function SignupForm() {
         value={formik.values.country}
       >
         <SelectTrigger className="">
-          <SelectValue placeholder="Pais" />
+          <SelectValue placeholder="País" />
         </SelectTrigger>
         <SelectContent>
-          {countries.map((country: string, index: number) => (
-            <SelectItem key={index} value={country}>
-              {country}
+          {countries.map((country: CountryType, index: number) => (
+            <SelectItem key={index} value={country.id}>
+              {country.name}
             </SelectItem>
           ))}
         </SelectContent>
       </Select>
       {genError(formik.errors.country)}
+    </div>
+  );
+  const newSchoolInput = (
+    <div className="mt-5">
+      <Label htmlFor="newSchool">Nombre del colegio</Label>
+      <Input
+        name="newSchool"
+        type="text"
+        onChange={formik.handleChange}
+        value={formik.values.newSchool}
+      />
+      {genError(formik.errors.newSchool)}
     </div>
   );
 
@@ -169,15 +210,33 @@ export default function SignupForm() {
         </SelectTrigger>
         <SelectContent>
           {getSchoolByBountry(formik.values.country).map(
-            (school: string, index: number) => (
-              <SelectItem key={index} value={school}>
-                {school}
+            (school: SchoolType, index: number) => (
+              <SelectItem key={index} value={school.id}>
+                {school.name}
               </SelectItem>
             )
           )}
+          <Separator className="my-1" />
+          <SelectItem key={-1} value={schoolNotListedItemValue}>
+            {schoolNotListedItemText}
+          </SelectItem>
         </SelectContent>
       </Select>
       {genError(formik.errors.school)}
+      {formik.values.school == schoolNotListedItemValue && newSchoolInput}
+    </div>
+  );
+
+  const birthDateInput = (
+    <div>
+      <Label htmlFor="birth">Fecha de nacimiento</Label>
+      <Input
+        name="birth"
+        type="date"
+        onChange={formik.handleChange}
+        value={formik.values.birth}
+      />
+      {genError(formik.errors.birth)}
     </div>
   );
 
@@ -194,9 +253,10 @@ export default function SignupForm() {
           {firstNameInput}
           {lastNameInput}
         </div>
+        {birthDateInput}
         {emailInput}
         {countryInput}
-        {schoolInput}
+        {formik.values.country && schoolInput}
 
         {submitButton}
       </div>
