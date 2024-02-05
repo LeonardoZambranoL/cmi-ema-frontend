@@ -86,12 +86,6 @@ const validate = (values: SingUpFormType) => {
 };
 
 export default function SignupForm() {
-  // Pass the useFormik() hook initial form values, a validate function that will be called when
-
-  // form values change or fields are blurred, and a submit function that will
-
-  // be called when the form is submitted
-
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -114,6 +108,9 @@ export default function SignupForm() {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
+
+    validateOnChange: false,
+
   });
   function genError(content: string | undefined) {
     if (content) {
