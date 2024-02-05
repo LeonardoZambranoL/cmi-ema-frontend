@@ -7,5 +7,5 @@ type Props = {
 }
 
 export default function Logo({dimension, className}: Props){
-  return <Image src="/logo.png" width={dimension} height={dimension} alt="" className={className}/>;
+  return <Image src="/logo.png" width={dimension} height={dimension} alt="CMI" className={className}/>;
 };
