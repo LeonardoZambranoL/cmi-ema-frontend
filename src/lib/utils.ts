@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { FAQType } from "@/app/types";
+import { FAQType, CountryType } from "@/app/types";
+
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -67,7 +68,12 @@ export function getFAQ(){
 
 
 export function getCountries(){
-  const countries: string[] = ["Ecuador", "República Dominicana", "Panamá", "Venezuela"];
+  const countries: CountryType[] = [
+    { id: "1", name: "Ecuador" },
+    { id: "2", name: "República Dominicana" },
+    { id: "3", name: "Panamá" },
+    { id: "4", name: "Venezuela" }
+  ];
   return countries;
 }
 
@@ -76,36 +82,36 @@ export function getSchoolByBountry(country: string){
     return [];
   }
   const schoolCountriesMap = {
-    "Ecuador":[
-      "IPAC", 
-      "Americano", 
-      "Liceo", 
-      "Espiritu Santo"
+    "1":[
+      { id: "1", name:"IPAC"}, 
+      { id: "2", name:"Americano"}, 
+      { id: "3", name:"Liceo"}, 
+      { id: "4", name:"Espiritu Santo"},
     ], 
-    "República Dominicana":[
-      "República 1", 
-      "República 2", 
-      "República 3", 
-      "República 4"
+    "2":[
+      { id: "5", name:"República 1"}, 
+      { id: "6", name:"República 2"}, 
+      { id: "7", name:"República 3"}, 
+      { id: "8", name:"República 4"},
     ], 
-    "Panamá":[
-      "Panamá 1", 
-      "Panamá 2", 
-      "Panamá 3", 
-      "Panamá 4"
+    "3":[
+      { id: "9", name:"Panamá 1"}, 
+      { id: "10", name:"Panamá 2"}, 
+      { id: "11", name:"Panamá 3"}, 
+      { id: "12", name:"Panamá 4"},
     ], 
-    "Venezuela":[
-      "Venezuela 1", 
-      "Venezuela 2", 
-      "Venezuela 3", 
-      "Venezuela 4"
+    "4":[
+      { id: "13", name:"Venezuela 1"}, 
+      { id: "14", name:"Venezuela 2"}, 
+      { id: "15", name:"Venezuela 3"}, 
+      { id: "16", name:"Venezuela 4"},
     ]
     };
     switch (country){
-      case "Ecuador": return schoolCountriesMap.Ecuador;
-      case "República Dominicana" : return schoolCountriesMap["República Dominicana"];
-      case "Panamá": return schoolCountriesMap.Panamá;
-      case "Venezuela": return schoolCountriesMap.Venezuela;
+      case "1": return schoolCountriesMap["1"];
+      case "2" : return schoolCountriesMap["2"];
+      case "3": return schoolCountriesMap["3"];
+      case "4": return schoolCountriesMap["4"];
     }
     return [];
 }
