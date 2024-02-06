@@ -20,8 +20,6 @@ const schoolNotListedItemValue = "newSchool";
 
 const validate = (values: SingUpFormType) => {
   const errors: SingUpFormType = {};
-  if (!values) {
-  }
 
   if (!values.firstName) {
     errors.firstName = "Necesario";
@@ -110,8 +108,8 @@ export default function SignupForm() {
     },
 
     validateOnChange: false,
-
   });
+  console.log(formik.errors);
   function genError(content: string | undefined) {
     if (content) {
       return (
@@ -164,7 +162,7 @@ export default function SignupForm() {
       <Label htmlFor="country">Pais</Label>
       <Select
         name="country"
-        onValueChange={(e) => formik.setFieldValue("country", e, true)}
+        onValueChange={(e) => formik.setFieldValue("country", e)}
         value={formik.values.country}
       >
         <SelectTrigger className="">
@@ -199,7 +197,7 @@ export default function SignupForm() {
       <Label htmlFor="school">Colegio</Label>
       <Select
         name="school"
-        onValueChange={(e) => formik.setFieldValue("school", e, true)}
+        onValueChange={(e) => formik.setFieldValue("school", e)}
         value={formik.values.school}
       >
         <SelectTrigger className="">
