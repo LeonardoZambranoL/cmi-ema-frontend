@@ -20,8 +20,6 @@ const schoolNotListedItemValue = "newSchool";
 
 const validate = (values: SingUpFormType) => {
   const errors: SingUpFormType = {};
-  if (!values) {
-  }
 
   if (!values.firstName) {
     errors.firstName = "Necesario";
@@ -86,12 +84,6 @@ const validate = (values: SingUpFormType) => {
 };
 
 export default function SignupForm() {
-  // Pass the useFormik() hook initial form values, a validate function that will be called when
-
-  // form values change or fields are blurred, and a submit function that will
-
-  // be called when the form is submitted
-
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -114,7 +106,10 @@ export default function SignupForm() {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
+
+    validateOnChange: false,
   });
+  console.log(formik.errors);
   function genError(content: string | undefined) {
     if (content) {
       return (
@@ -167,7 +162,7 @@ export default function SignupForm() {
       <Label htmlFor="country">Pais</Label>
       <Select
         name="country"
-        onValueChange={(e) => formik.setFieldValue("country", e, true)}
+        onValueChange={(e) => formik.setFieldValue("country", e)}
         value={formik.values.country}
       >
         <SelectTrigger className="">
@@ -202,7 +197,7 @@ export default function SignupForm() {
       <Label htmlFor="school">Colegio</Label>
       <Select
         name="school"
-        onValueChange={(e) => formik.setFieldValue("school", e, true)}
+        onValueChange={(e) => formik.setFieldValue("school", e)}
         value={formik.values.school}
       >
         <SelectTrigger className="">
