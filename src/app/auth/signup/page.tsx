@@ -43,12 +43,12 @@ export default function Page() {
   const startPage = (
     <>
       <div className="ml-3 mr-3 md:grid md:grid-cols-12">
-        <div className="md:col-span-2 lg:col-span-4" />
-        <div className="sm:col-span-10 md:col-span-8 lg:col-span-4 my-48">
-          <Card className={`rounded-none`}>
+        <div className="md:col-span-2 lg:col-span-3 xl:col-span-4" />
+        <div className="md:col-span-8 lg:col-span-6 xl:col-span-4 my-64">
+          <Card className="rounded-none border-hidden md:border-solid">
             <div className="grid grid-cols-12">
-              <div className="bg-[url('/bgOrange.png')] col-span-2 md:col-span-3"></div>
-              <div className="col-span-10 md:col-span-9">
+              <div className="bg-[url('/bgOrange.png')] col-span-3"></div>
+              <div className="col-span-9">
                 <CardHeader>
                   <CardTitle>
                     <MediumHeader>{formHeaderContent}</MediumHeader>
@@ -78,9 +78,9 @@ export default function Page() {
   const formPage = (
     <>
       <div className="ml-3 mr-3 md:grid md:grid-cols-12">
-        <div className="md:col-span-2 lg:col-span-4" />
-        <div className="sm:col-span-10 md:col-span-8 lg:col-span-4 my-48">
-          <Card className={`rounded-none`}>
+        <div className="md:col-span-2 lg:col-span-3 xl:col-span-4" />
+        <div className="md:col-span-8 lg:col-span-6 xl:col-span-4 my-12">
+          <Card className="rounded-none border-hidden md:border-solid">
             <div className="grid grid-cols-12">
               <div className="bg-[url('/bgOrangeRotate.png')] col-span-1"></div>
               <div className="col-span-10">
