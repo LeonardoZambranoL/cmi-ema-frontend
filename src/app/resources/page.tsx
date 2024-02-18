@@ -14,7 +14,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="w-full mb-10">
+      <div className="w-full mb-12">
         <div className="w-full flex flex-col gap-5">
           <div className="container flex flex-col items-center text-center w-full">
             <BigHeader>Recursos de entrenamiento</BigHeader>
@@ -32,7 +32,7 @@ export default function Page() {
                 <div className="underline">
                   <MediumHeader>Recursos en Linea</MediumHeader>
                 </div>
-                <div className="flex flex-wrap gap-10 mt-4 justify-center">
+                <div className="flex flex-wrap gap-10 mt-4 justify-center max-w-screen">
                   {webResources.map((r: RessourceType, index: number) => (
                     <div key={index}>
                       <RessourcesCard
@@ -64,7 +64,7 @@ export default function Page() {
                   ))}
                 </div>
               </div>
-              <div className="p-5 ml-10">
+              <div className="pt-5 w-full text-justify">
                 <MutedParagraph>
                   Queremos hacer la matemática accesible para todos. Si conoces
                   material de entrenamiento gratuito y deseas compartirlo,
