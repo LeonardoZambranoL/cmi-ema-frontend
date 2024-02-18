@@ -13,7 +13,7 @@ import { ReactNode, useState } from "react";
 import Logo from "@/components/Logo";
 import BigHeader from "@/components/Headers/BigHeader";
 import VoidPrimaryButton from "@/components/Buttons/VoidPrimaryButton";
-import SignupForm from "@/components/forms/signupForm";
+import SignupForm from "@/components/Forms/SignupForm";
 
 export default function Page() {
   const [start, setStart] = useState(false);
@@ -51,7 +51,9 @@ export default function Page() {
               <div className="col-span-9">
                 <CardHeader>
                   <CardTitle>
-                    <MediumHeader>{formHeaderContent}</MediumHeader>
+                    <div className="container flex flex-col items-center text-center w-full">
+                      <MediumHeader>{formHeaderContent}</MediumHeader>
+                    </div>
                   </CardTitle>
                   <CardDescription>
                     <span className="w-full flex flex-row justify-center">
@@ -86,7 +88,9 @@ export default function Page() {
               <div className="col-span-10">
                 <CardHeader>
                   <CardTitle>
-                    <MediumHeader>Formulario</MediumHeader>
+                    <div className="container flex flex-col items-center text-center w-full">
+                      <MediumHeader>Formulario</MediumHeader>
+                    </div>
                   </CardTitle>
                   <CardDescription></CardDescription>
                 </CardHeader>

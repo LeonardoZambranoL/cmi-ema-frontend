@@ -33,17 +33,23 @@ export default function Home() {
       <div className="flex flex-col gap-16">
         <div className="w-full flex flex-col items-center gap-4 text-center">
           <Logo dimension={100} className="" />
-          <BigHeader> {title} </BigHeader>
-          <MutedParagraph> {paragraph} </MutedParagraph>
+          <div className="container flex flex-col items-center text-center w-full">
+            <BigHeader> {title} </BigHeader>
+          </div>
+          <div className="container flex flex-col items-center text-center md:w-9/12 lg:w-6/12">
+            <MutedParagraph> {paragraph} </MutedParagraph>
+          </div>
           <div>{inscribete}</div>
         </div>
         <div className="container items-start mb-10 md:mt-5">
-          <MediumHeader> {faqTitle} </MediumHeader>
+          <div className="container flex flex-col items-center text-center w-full">
+            <MediumHeader> {faqTitle} </MediumHeader>
+          </div>
           <Accordion type="single" collapsible>
             {faqs.map((faq, index) => (
               <AccordionItem value={String(index)} key={index}>
                 <AccordionTrigger>
-                    <SmallHeader> {faq.question} </SmallHeader>
+                  <SmallHeader> {faq.question} </SmallHeader>
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="mx-2">

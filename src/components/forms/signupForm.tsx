@@ -12,7 +12,7 @@ import VoidPrimaryButton from "../Buttons/VoidPrimaryButton";
 import { getCountries, getSchoolByBountry } from "@/lib/utils";
 import { SingUpFormType } from "./types";
 import { Separator } from "@/components/ui/separator";
-import { CountryType, SchoolType } from "@/app/types";
+import { CountryType, SchoolType } from "@/types";
 import axios from "axios";
 
 const countries = getCountries();
