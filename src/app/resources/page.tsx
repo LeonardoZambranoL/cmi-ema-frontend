@@ -9,6 +9,9 @@ import MailTo from "@/components/Contact/MailTo";
 export default function Page() {
   const webResources = getWebRessources();
   const bookResources = getBookRessources();
+  const mailtoSubject = "Recomendación para materiales de entrenamiento | RME";
+  const mailtoBody = `Hola!\n\n• Recomiendo el siguiente material:\n• Autor/Organización:\n• Link al material:\n• El material es gratuito (Si/No):\n\nSi tienes comentarios sobre el material o quisieras contarnos algo más al respecto siéntete libre de hacerlo!`;
+
   return (
     <>
       <div className="w-full mb-10">
@@ -66,11 +69,9 @@ export default function Page() {
                   Queremos hacer la matemática accesible para todos. Si conoces
                   material de entrenamiento gratuito y deseas compartirlo,
                   envianos un correo electrónico a&nbsp;
-                  <MailTo
-                    subject="Recomendación para materiales de entrenamiento"
-                    body="Hola!\nRecomiendo el siguiente material:\nAutor/Organización:\nEl material trata sobre:"
-                  />
-                  &nbsp;para publicarlo aquí y ampliar nuestra biblioteca. ¡Apreciamos tu aporte!
+                  <MailTo subject={mailtoSubject} body={mailtoBody} />
+                  &nbsp;para publicarlo aquí y ampliar nuestra biblioteca.
+                  ¡Apreciamos tu aporte!
                 </MutedParagraph>
               </div>
             </div>
