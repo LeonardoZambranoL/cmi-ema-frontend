@@ -194,7 +194,7 @@ export function getBookRessources(){
       title: "Problem-Solving Strategies",
       description:
         "por Arthur Engel",
-      content: "libro dedicado a estrategias para resolver problemas. A diferencia de libros anteriores, no se basa mucho en una rama específica.",
+      content: "Libro dedicado a estrategias para resolver problemas. A diferencia de libros anteriores, no se basa mucho en una rama específica.",
       link: "https://www.amazon.com/Problem-Solving-Strategies-Problem-Books-Mathematics/dp/0387982191",
       free: false,
     },
