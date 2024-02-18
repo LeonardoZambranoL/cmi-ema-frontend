@@ -26,7 +26,7 @@ export default function RessourcesCard({
 }: Props) {
   return (
     <Card className="w-[380px]">
-      <Badge className="mt-1" variant={free ? "default" : "secondary"}>
+      <Badge className="mt-1" variant={free ? "secondary" : "default"}>
         {free ? "Gratis" : "Pagado"}
       </Badge>
       <CardHeader className="mt-1">
