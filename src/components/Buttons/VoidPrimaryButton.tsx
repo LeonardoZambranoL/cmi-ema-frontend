@@ -20,7 +20,7 @@ export default function VoidPrimaryButton({
       <Button
         type={type}
         className={`bg-background hover:bg-secondary border-solid border-2 border-primary text-primary font-semibold py-6 w-full ${className}`}
-        onClick={voidFunc}
+        onClick={voidFunc ? voidFunc : undefined}
       >
         <span className="truncate">{children}</span>
       </Button>
