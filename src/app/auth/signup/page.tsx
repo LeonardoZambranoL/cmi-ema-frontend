@@ -19,26 +19,10 @@ export default function Page() {
   const [start, setStart] = useState(false);
   const formHeaderContent = "Registrate";
   const formSubHeaderContent = "A la CMI 2024";
-  const formButtonContent = "Enviar!";
-  const alertDialogHeaderContent = "Te hemos enviado un correo.";
-  const postRegistrationHeaderContent = "Revisa tu correo!";
 
   function handleStart() {
     setStart(true);
   }
-
-  const alertDialogActionContent = "OK";
-
-  const afterAllPage = (
-    <div>
-      <div className="w-full flex flex-row justify-center">
-        <Logo dimension={150} className="" />
-      </div>
-      <div>
-        <BigHeader>{postRegistrationHeaderContent}</BigHeader>
-      </div>
-    </div>
-  );
 
   const startPage = (
     <>
