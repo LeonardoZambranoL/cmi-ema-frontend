@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { useFormik } from "formik";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
@@ -14,10 +16,26 @@ import { Separator } from "@/components/ui/separator";
 import { CountryType, SchoolType } from "@/types";
 import axios from "axios";
 import { SingUpFormType } from "./types";
+import Logo from "../Logo";
+import BigHeader from "../Headers/BigHeader";
 
 const countries = getCountries();
 const schoolNotListedItemText = "Mi colegio no está en la lista";
 const schoolNotListedItemValue = "newSchool";
+const postRegistrationHeaderContent = "Revisa tu correo!";
+
+const afterAllPage = (
+  <div>
+    <div className="w-full flex flex-row justify-center">
+      <Logo dimension={150} className="" />
+    </div>
+    <div>
+      <div className="container flex flex-col items-center text-center w-full">
+        <BigHeader>{postRegistrationHeaderContent}</BigHeader>
+      </div>
+    </div>
+  </div>
+);
 
 const validate = (values: SingUpFormType) => {
   const errors: SingUpFormType = {};
@@ -85,6 +103,7 @@ const validate = (values: SingUpFormType) => {
 };
 
 export default function SignupForm() {
+  const [done, setDone] = useState(false);
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -105,12 +124,12 @@ export default function SignupForm() {
     validate,
 
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
       axios
         .post("http://127.0.0.1:8000/test", values)
         .then(function (response) {
           console.log(response);
         });
+      setDone(true);
     },
 
     validateOnChange: false,
@@ -245,21 +264,21 @@ export default function SignupForm() {
       <VoidPrimaryButton type="submit">Submit</VoidPrimaryButton>
     </div>
   );
-
-  return (
-    <form onSubmit={formik.handleSubmit}>
-      <div className="flex flex-col justify-between gap-5">
-        <div className="flex flex-row justified-between gap-3">
-          {firstNameInput}
-          {lastNameInput}
-        </div>
-        {birthDateInput}
-        {emailInput}
-        {countryInput}
-        {formik.values.country && schoolInput}
-
-        {submitButton}
+  const form = (
+    <div className="flex flex-col justify-between gap-5">
+      <div className="flex flex-row justified-between gap-3">
+        {firstNameInput}
+        {lastNameInput}
       </div>
-    </form>
+      {birthDateInput}
+      {emailInput}
+      {countryInput}
+      {formik.values.country && schoolInput}
+
+      {submitButton}
+    </div>
+  );
+  return (
+    <form onSubmit={formik.handleSubmit}>{done ? afterAllPage : form}</form>
   );
 }
