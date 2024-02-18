@@ -9,9 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ReactNode, useState } from "react";
-import Logo from "@/components/Logo";
-import BigHeader from "@/components/Headers/BigHeader";
+import { useState } from "react";
 import VoidPrimaryButton from "@/components/Buttons/VoidPrimaryButton";
 import SignupForm from "@/components/Forms/SignupForm";
 

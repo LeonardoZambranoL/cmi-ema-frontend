@@ -14,6 +14,8 @@ export default function MailTo({ subject, body }: Props) {
     <a
       href={`mailto:${contactEmail}?subject=${encodedSubject}&body=${encodedBody}`}
       className="font-semibold"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {contactEmail}
     </a>

@@ -25,7 +25,7 @@ export default function RessourcesCard({
   free,
 }: Props) {
   return (
-    <Card className="w-[380px]">
+    <Card className="w-[380px] max-w-xs md:max-w-full">
       <Badge className="mt-1" variant={free ? "secondary" : "default"}>
         {free ? "Gratis" : "Pagado"}
       </Badge>
