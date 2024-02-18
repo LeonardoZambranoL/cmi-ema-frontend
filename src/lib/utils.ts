@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { FAQType, CountryType } from "@/app/types";
+import { FAQType, CountryType, RessourceType } from "@/types";
+import { link } from "fs";
 
 
 export function cn(...inputs: ClassValue[]) {
@@ -114,4 +115,97 @@ export function getSchoolByBountry(country: string){
       case "4": return schoolCountriesMap["4"];
     }
     return [];
+}
+
+export function getWebRessources(){
+  const resources: RessourceType[] = [
+    {
+      title: "OMEC",
+      description:
+        "Recursos de la Olimpiada Ecuatoriana de Matemáticas",
+      content: "Incluye:\n\n•Olimpiadas nacionales\n•Selectivos Nacionales\n•Olimpiadas internacionales\n•Listas semanales de entrenamiento\n•Pruebas y soluciones",
+      link: "https://omec-mat.org/entrenamiento/",
+      free: true,
+    },
+    {
+      title: "AoPS",
+      description:
+        "Art of Problem Solving",
+      content: "Extenso foro que almacena de problemas de todo tipo, entre ellos los de olimpiadas de matemáticas. De aquí se pueden encontrar problemas de olimpiadas pasadas de todo el mundo, desde regionales y nacionales hasta internacionales. ",
+      link: "https://artofproblemsolving.com/community/c13_contests",
+      free: true,
+    },
+    {
+      title: "APOL",
+      description:
+        "Academia de Ciencias Exactas",
+      content: "La Academia de Ciencias Exactas APOL organiza las Olimpiadas APOL, un concurso de dos fases de matemáticas y física, y también nos apoyan en la organización de la CMI. Debido a que dividimos las categoría de manera parecida (Básico Superior y Bachillerato), sus pruebas son una buena referencia para los problemas que encontrarás en la CMI.",
+      link: "https://apol.com.ec/olimpiadas/",
+      free: true,
+    },
+  ];
+
+  return resources;
+}
+
+export function getBookRessources(){
+  const resources: RessourceType[] = [
+    {
+      title: "LIBRO CMI",
+      description:
+        "Libro de la primera edicion de la CMI",
+      content: "Incluye:\n\n•Nivel Smooth\n•Nivel Hard\n•Pruebas y soluciones",
+      link: "/LibroCMI.pdf",
+      free: true,
+    },
+    {
+      title: "A Beautiful Journey Through Olympiad Geometry",
+      description:
+        "por Stefan Lozanovski",
+      content: "libro que presenta todos los teoremas/métodos que necesitas saber para resolver problemas de geometría de las Olimpiadas. Avanza paso a paso, empezando desde cero, por lo que definitivamente podrás seguirlo sin ningún material adicional. Contiene problemas resueltos utilizando estos teoremas, pero también problemas relacionados que quedan sin resolver como práctica para el lector.",
+      link: "https://www.olympiadgeometry.com/the-book.html",
+      free: true,
+    },
+    {
+      title: " Modern Olympiad Number Theory",
+      description:
+        "por Aditya Khurmi",
+      content: "Aunque este libro recorre los temas básicos, los problemas no son sencillos o triviales por lo que recomendamos que le dediques una cantidad considerable de tiempo a esta sección.",
+      link: "https://artofproblemsolving.com/community/c6h2344755",
+      free: true,
+    },
+    {
+      title: "Euclidean Geometry in Mathematical Olympiads",
+      description:
+        "por Evan Chen",
+      content: "Escrito por Evan Chen, un renombrado olímpico de matemáticas, es un libro completamente acerca de la rama de Geometría. Gracias a que engloba desde temas básicos hasta avanzados eficientemente, es considerado uno de los mejores libros para geometría olímpica.",
+      link: "https://web.evanchen.cc/geombook.html",
+      free: false,
+    },
+    {
+      title: "Cuadernos de Olimpiada",
+      description:
+        "La Olimpiada Méxicana de Matemáticas (OMM)",
+      content: "Extensa colección de libros olímpicos, muchos de ellos amigables para empezar a aprender matemática olímpica. La mayoria de libros tratan una rama a profundidad.",
+      link: "https://www.ommenlinea.org/publicaciones/libros-de-olimpiada/",
+      free: false,
+    },
+    {
+      title: "Problem-Solving Strategies",
+      description:
+        "por Arthur Engel",
+      content: "libro dedicado a estrategias para resolver problemas. A diferencia de libros anteriores, no se basa mucho en una rama específica.",
+      link: "https://www.amazon.com/Problem-Solving-Strategies-Problem-Books-Mathematics/dp/0387982191",
+      free: false,
+    },
+    {
+      title: "The Art and Craft of Problem Solving",
+      description:
+        "por Paul Zeitz",
+      content: "Escrito por un entrenador del equipo estadounidense para la Olimpiada Internacional de Matemáticas (IMO), y al igual que el libro anterior, trata de estrategias generales para resolver problemas.\nLos 2 últimos libros tienen capitulos muy interesantes para aprender a afrontar problemas de olimpiadas, sin embargo también tiene capítulos con temas bastante avanzados por lo que el lector debe ser juicioso con respecto a los capitulos que se está leyendo.",
+      link: "https://www.amazon.com/Art-Craft-Problem-Solving/dp/0471789011",
+      free: false,
+    },
+  ];
+  return resources;
 }
