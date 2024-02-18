@@ -18,7 +18,7 @@ export default function TwoLinkButtons({
     <div className="mt-2 flex flex-row gap-4 max-w-full">
       <Link href={callToActionLink} className="w-2/3">
         <Button className="bg-background hover:bg-secondary border-solid border-2 border-primary text-primary font-semibold py-6 w-full min-w-32">
-          <span className="">{callToActionContent}</span>
+          <span>{callToActionContent}</span>
         </Button>
       </Link>
       <Link href={otherLink} className="w-1/3">

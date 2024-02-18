@@ -10,9 +10,10 @@ import {
 } from "@/components/ui/select";
 import VoidPrimaryButton from "../Buttons/VoidPrimaryButton";
 import { getCountries, getSchoolByBountry } from "@/lib/utils";
-import { SingUpFormType } from "./types";
 import { Separator } from "@/components/ui/separator";
-import { CountryType, SchoolType } from "@/app/types";
+import { CountryType, SchoolType } from "@/types";
+import axios from "axios";
+import { SingUpFormType } from "./types";
 
 const countries = getCountries();
 const schoolNotListedItemText = "Mi colegio no está en la lista";
@@ -105,11 +106,15 @@ export default function SignupForm() {
 
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+      axios
+        .post("http://127.0.0.1:8000/test", values)
+        .then(function (response) {
+          console.log(response);
+        });
     },
 
     validateOnChange: false,
   });
-  console.log(formik.errors);
   function genError(content: string | undefined) {
     if (content) {
       return (

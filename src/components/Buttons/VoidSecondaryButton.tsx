@@ -9,7 +9,7 @@ type Props = {
   voidFunc?: () => void;
 };
 
-export default function VoidPrimaryButton({
+export default function VoidSecondaryButton({
   children,
   className,
   type = undefined,
@@ -19,7 +19,7 @@ export default function VoidPrimaryButton({
     <div className="mt-2 flex flex-row justify-center gap-4 w-full">
       <Button
         type={type}
-        className={`bg-background hover:bg-secondary border-solid border-2 border-primary text-primary font-semibold py-6 w-full ${className}`}
+        className={`bg-primary hover:bg-primary/80 text-secondary font-semibold py-6 w-full min-w-24 ${className}`}
         onClick={voidFunc ? voidFunc : undefined}
       >
         <span className="truncate">{children}</span>
