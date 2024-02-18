@@ -4,13 +4,14 @@ import { getBookRessources, getWebRessources } from "@/lib/utils";
 import { RessourceType } from "@/types";
 import MutedParagraph from "@/components/Paragraph/MutedParagraph";
 import MediumHeader from "@/components/Headers/MediumHeader";
+import MailTo from "@/components/Contact/MailTo";
 
 export default function Page() {
   const webResources = getWebRessources();
   const bookResources = getBookRessources();
   return (
     <>
-      <div className="w-full">
+      <div className="w-full mb-10">
         <div className="w-full flex flex-col gap-5">
           <div className="container flex flex-col items-center text-center w-full">
             <BigHeader>Recursos de entrenamiento</BigHeader>
@@ -59,6 +60,18 @@ export default function Page() {
                     </div>
                   ))}
                 </div>
+              </div>
+              <div className="p-5 ml-10">
+                <MutedParagraph>
+                  Queremos hacer la matemática accesible para todos. Si conoces
+                  material de entrenamiento gratuito y deseas compartirlo,
+                  envianos un correo electrónico a&nbsp;
+                  <MailTo
+                    subject="Recomendación para materiales de entrenamiento"
+                    body="Hola!\nRecomiendo el siguiente material:\nAutor/Organización:\nEl material trata sobre:"
+                  />
+                  &nbsp;para publicarlo aquí y ampliar nuestra biblioteca. ¡Apreciamos tu aporte!
+                </MutedParagraph>
               </div>
             </div>
           </div>
