@@ -1,10 +1,8 @@
 import TwoLinkButtons from "@/components/Buttons/TwoLinkButtons";
-import VoidPrimaryButton from "@/components/Buttons/VoidPrimaryButton";
 import VoidSecondaryButton from "@/components/Buttons/VoidSecondaryButton";
 import BigHeader from "@/components/Headers/BigHeader";
 import Logo from "@/components/Logo";
 import MutedParagraph from "@/components/Paragraph/MutedParagraph";
-import { getFAQ } from "@/lib/utils";
 import Link from "next/link";
 
 export default function Home() {
