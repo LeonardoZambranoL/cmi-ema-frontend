@@ -179,7 +179,7 @@ export function getBookRessources(){
       description:
         "por Evan Chen",
       content: "Escrito por Evan Chen, un renombrado olímpico de matemáticas, es un libro completamente acerca de la rama de Geometría. Gracias a que engloba desde temas básicos hasta avanzados eficientemente, es considerado uno de los mejores libros para geometría olímpica.",
-      link: "https://web.evanchen.cc/geombook.html",
+      link: "https://bookstore.ams.org/prb-27/",
       free: false,
     },
     {
