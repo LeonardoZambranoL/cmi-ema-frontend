@@ -5,5 +5,5 @@ type Props = {
 };
 
 export default function StandardParagraph({ children }: Props) {
-  return <span className="text-sm md:text-lg lg:text-xl">{children}</span>;
+  return <span className="text-sm md:text-lg lg:text-xl whitespace-pre-line">{children}</span>;
 }
