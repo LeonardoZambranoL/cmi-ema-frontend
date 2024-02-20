@@ -6,7 +6,7 @@ import MutedParagraph from "@/components/Paragraph/MutedParagraph";
 import Link from "next/link";
 
 export default function Home() {
-  const title = "Competencia Matemática\nIntercolegial CMI 2024";
+  const title = "Competencia de Matemáticas\nIntercolegial CMI 2024";
   const paragraph =
     "¡Bienvenidos a la Competencia Matemática Intercolegial CMI 2024! Este año, nuestra edición anual se enorgullece de acoger a un mayor número de países, colegios y participantes.";
 

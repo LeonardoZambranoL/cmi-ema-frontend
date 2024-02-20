@@ -6,14 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import VoidSecondaryButton from "@/components/Buttons/VoidSecondaryButton";
 import SmallHeader from "@/components/Headers/SmallHeader";
-import MediumHeader from "@/components/Headers/MediumHeader";
 
 export default function Page() {
   return (
     <div className="container mb-20">
       <div className="container mx-auto max-w-screen-lg px-4 py-8">
         <div className="text-center">
-          <MediumHeader>¿Qué es la CMI?</MediumHeader>
+          <BigHeader>Competencia de Matemáticas Intercolegial</BigHeader>
         </div>
 
         <div className="my-10 flex flex-col items-center">

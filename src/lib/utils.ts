@@ -154,7 +154,7 @@ export function getBookRessources(){
       title: "LIBRO CMI",
       description:
         "Libro de la primera edicion de la CMI",
-      content: "Incluye:\n\n•Nivel Smooth\n•Nivel Hard\n•Pruebas y soluciones",
+      content: "Libro escrito en base a la primera edición de la CMI, contiene todos los problemas que fueron considerados para la olimpiada con soluciones detalladas a cada uno.\n\n•Nivel Smooth\n•Nivel Hard\n•Pruebas y soluciones",
       link: "/LibroCMI.pdf",
       free: true,
     },
@@ -166,20 +166,20 @@ export function getBookRessources(){
       link: "https://www.olympiadgeometry.com/the-book.html",
       free: true,
     },
-    //{
-    //  title: " Modern Olympiad Number Theory",
-    //  description:
-    //    "por Aditya Khurmi",
-    //  content: "Aunque este libro recorre los temas básicos, los problemas no son sencillos o triviales por lo que recomendamos que le dediques una cantidad considerable de tiempo a esta sección.",
-    //  link: "https://artofproblemsolving.com/community/c6h2344755",
-    //  free: true,
-    //},
+    {
+      title: " Modern Olympiad Number Theory",
+      description:
+        "por Aditya Khurmi",
+      content: "Aunque este libro recorre los temas básicos, los problemas no son sencillos o triviales por lo que recomendamos que le dediques una cantidad considerable de tiempo a esta sección.",
+      link: "https://artofproblemsolving.com/community/c6h2344755",
+      free: true,
+    },
     {
       title: "Euclidean Geometry in Mathematical Olympiads",
       description:
         "por Evan Chen",
       content: "Escrito por Evan Chen, un renombrado olímpico de matemáticas, es un libro completamente acerca de la rama de Geometría. Gracias a que engloba desde temas básicos hasta avanzados eficientemente, es considerado uno de los mejores libros para geometría olímpica.",
-      link: "https://web.evanchen.cc/geombook.html",
+      link: "https://bookstore.ams.org/prb-27/",
       free: false,
     },
     {
@@ -195,17 +195,17 @@ export function getBookRessources(){
       description:
         "por Arthur Engel",
       content: "Libro dedicado a estrategias para resolver problemas. A diferencia de libros anteriores, no se basa mucho en una rama específica.",
-      link: "https://www.amazon.com/Problem-Solving-Strategies-Problem-Books-Mathematics/dp/0387982191",
+      link: "https://link.springer.com/book/10.1007/b97682",
       free: false,
     },
-    {
-      title: "The Art and Craft of Problem Solving",
-      description:
-        "por Paul Zeitz",
-      content: "Escrito por un entrenador del equipo estadounidense para la Olimpiada Internacional de Matemáticas (IMO), y al igual que el libro anterior, trata de estrategias generales para resolver problemas.\nLos 2 últimos libros tienen capitulos muy interesantes para aprender a afrontar problemas de olimpiadas, sin embargo también tiene capítulos con temas bastante avanzados por lo que el lector debe ser juicioso con respecto a los capitulos que se está leyendo.",
-      link: "https://www.amazon.com/Art-Craft-Problem-Solving/dp/0471789011",
-      free: false,
-    },
+    //{
+    //  title: "The Art and Craft of Problem Solving",
+    //  description:
+    //    "por Paul Zeitz",
+    //  content: "Escrito por un entrenador del equipo estadounidense para la Olimpiada Internacional de Matemáticas (IMO), y al igual que el libro anterior, trata de estrategias generales para resolver problemas.\nLos 2 últimos libros tienen capitulos muy interesantes para aprender a afrontar problemas de olimpiadas, sin embargo también tiene capítulos con temas bastante avanzados por lo que el lector debe ser juicioso con respecto a los capitulos que se está leyendo.",
+    //  link: "https://www.amazon.com/Art-Craft-Problem-Solving/dp/0471789011",
+    //  free: false,
+    //},
   ];
   return resources;
 }
