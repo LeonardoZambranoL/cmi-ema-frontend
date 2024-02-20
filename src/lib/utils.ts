@@ -166,14 +166,14 @@ export function getBookRessources(){
       link: "https://www.olympiadgeometry.com/the-book.html",
       free: true,
     },
-    //{
-    //  title: " Modern Olympiad Number Theory",
-    //  description:
-    //    "por Aditya Khurmi",
-    //  content: "Aunque este libro recorre los temas básicos, los problemas no son sencillos o triviales por lo que recomendamos que le dediques una cantidad considerable de tiempo a esta sección.",
-    //  link: "https://artofproblemsolving.com/community/c6h2344755",
-    //  free: true,
-    //},
+    {
+      title: " Modern Olympiad Number Theory",
+      description:
+        "por Aditya Khurmi",
+      content: "Aunque este libro recorre los temas básicos, los problemas no son sencillos o triviales por lo que recomendamos que le dediques una cantidad considerable de tiempo a esta sección.",
+      link: "https://artofproblemsolving.com/community/c6h2344755",
+      free: true,
+    },
     {
       title: "Euclidean Geometry in Mathematical Olympiads",
       description:
