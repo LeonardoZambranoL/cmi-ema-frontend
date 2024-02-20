@@ -44,14 +44,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     siteName: "Competencia de Matemáticas Intercolegial",
-    images: [
-      {
-        url: "/fondo.png",
-        width: 1200,
-        height: 630,
-        alt: "CMI Olimpiadas",
-      },
-    ],
   },
 };
 
