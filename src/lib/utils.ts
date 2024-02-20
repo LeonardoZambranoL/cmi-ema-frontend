@@ -198,14 +198,14 @@ export function getBookRessources(){
       link: "https://www.amazon.com/Problem-Solving-Strategies-Problem-Books-Mathematics/dp/0387982191",
       free: false,
     },
-    {
-      title: "The Art and Craft of Problem Solving",
-      description:
-        "por Paul Zeitz",
-      content: "Escrito por un entrenador del equipo estadounidense para la Olimpiada Internacional de Matemáticas (IMO), y al igual que el libro anterior, trata de estrategias generales para resolver problemas.\nLos 2 últimos libros tienen capitulos muy interesantes para aprender a afrontar problemas de olimpiadas, sin embargo también tiene capítulos con temas bastante avanzados por lo que el lector debe ser juicioso con respecto a los capitulos que se está leyendo.",
-      link: "https://www.amazon.com/Art-Craft-Problem-Solving/dp/0471789011",
-      free: false,
-    },
+    //{
+    //  title: "The Art and Craft of Problem Solving",
+    //  description:
+    //    "por Paul Zeitz",
+    //  content: "Escrito por un entrenador del equipo estadounidense para la Olimpiada Internacional de Matemáticas (IMO), y al igual que el libro anterior, trata de estrategias generales para resolver problemas.\nLos 2 últimos libros tienen capitulos muy interesantes para aprender a afrontar problemas de olimpiadas, sin embargo también tiene capítulos con temas bastante avanzados por lo que el lector debe ser juicioso con respecto a los capitulos que se está leyendo.",
+    //  link: "https://www.amazon.com/Art-Craft-Problem-Solving/dp/0471789011",
+    //  free: false,
+    //},
   ];
   return resources;
 }
