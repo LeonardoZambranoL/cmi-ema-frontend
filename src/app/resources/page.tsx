@@ -5,6 +5,7 @@ import { RessourceType } from "@/types";
 import MutedParagraph from "@/components/Paragraph/MutedParagraph";
 import MediumHeader from "@/components/Headers/MediumHeader";
 import MailTo from "@/components/Contact/MailTo";
+import StandardParagraph from "@/components/Paragraph/StandardParagraph";
 
 export default function Page() {
   const webResources = getWebRessources();
@@ -65,14 +66,14 @@ export default function Page() {
                 </div>
               </div>
               <div className="pt-5 w-full text-justify">
-                <MutedParagraph>
+                <StandardParagraph>
                   Queremos hacer la matemática accesible para todos. Si conoces
                   material de entrenamiento gratuito y deseas compartirlo,
                   envianos un correo electrónico a&nbsp;
                   <MailTo subject={mailtoSubject} body={mailtoBody} />
                   &nbsp;para publicarlo aquí y ampliar nuestra biblioteca.
                   ¡Apreciamos tu aporte!
-                </MutedParagraph>
+                </StandardParagraph>
               </div>
             </div>
           </div>
