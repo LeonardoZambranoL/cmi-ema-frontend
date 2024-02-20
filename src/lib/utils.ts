@@ -154,7 +154,7 @@ export function getBookRessources(){
       title: "LIBRO CMI",
       description:
         "Libro de la primera edicion de la CMI",
-      content: "Incluye:\n\n•Nivel Smooth\n•Nivel Hard\n•Pruebas y soluciones",
+      content: "Libro escrito en base a la primera edición de la CMI, contiene todos los problemas que fueron considerados para la olimpiada con soluciones detalladas a cada uno.\n\n•Nivel Smooth\n•Nivel Hard\n•Pruebas y soluciones",
       link: "/LibroCMI.pdf",
       free: true,
     },
