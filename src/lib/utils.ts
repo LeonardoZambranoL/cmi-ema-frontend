@@ -162,7 +162,7 @@ export function getBookRessources(){
       title: "A Beautiful Journey Through Olympiad Geometry",
       description:
         "por Stefan Lozanovski",
-      content: "libro que presenta todos los teoremas/métodos que necesitas saber para resolver problemas de geometría de las Olimpiadas. Avanza paso a paso, empezando desde cero, por lo que definitivamente podrás seguirlo sin ningún material adicional. Contiene problemas resueltos utilizando estos teoremas, pero también problemas relacionados que quedan sin resolver como práctica para el lector.",
+      content: "Libro que presenta todos los teoremas/métodos que necesitas saber para resolver problemas de geometría de las Olimpiadas. Avanza paso a paso, empezando desde cero, por lo que definitivamente podrás seguirlo sin ningún material adicional. Contiene problemas resueltos utilizando estos teoremas, pero también problemas relacionados que quedan sin resolver como práctica para el lector.",
       link: "https://www.olympiadgeometry.com/the-book.html",
       free: true,
     },
