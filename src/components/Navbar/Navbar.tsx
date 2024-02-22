@@ -15,7 +15,6 @@ import NavbarLinksDropdown from "./NavbarLinksDropdown";
 import { Button } from "../ui/button";
 
 function Navbar() {
-  //bg-gray-900
   return (
     <header className="bg-inherit p-4 justify-between items-center flex flex-col sticky top-0 z-50 shadow-md drop-shadow-lg">
       <div className="flex md:flex-row w-11/12 md:w-4/5 justify-between">
@@ -37,10 +36,10 @@ function Navbar() {
           className={`flex gap-10 mt-6 md:flex-row md:gap-4 md:mt-0 font-bold`}
         ></div>
         <div className="flex flex-row">
-          <Button className="hidden md:flex font-semibold bg-secondary text-slate-100 hover:bg-secondary/80">
+          <Button className="hidden font-semibold bg-primary text-secondary hover:bg-primary/80 rounded-xl">
             <FontAwesomeIcon icon={faSignOut} />
           </Button>
-          <Button className="hidden md:flex font-semibold bg-secondary text-slate-100 hover:bg-secondary/80">
+          <Button className="hidden md:flex font-semibold bg-primary text-secondary hover:bg-primary/80 rounded-xl">
             <FontAwesomeIcon icon={faUser} />
           </Button>
         </div>
@@ -54,7 +53,7 @@ function Navbar() {
             <DropdownMenuContent>
               <DropdownMenuLabel>Menu</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <NavbarLinksDropdown className=""/>
+              <NavbarLinksDropdown className="" />
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
