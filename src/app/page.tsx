@@ -23,7 +23,7 @@ export default function Home() {
       <div>
         <div className="flex flex-col gap-16 my-16">
           <div className="w-full flex flex-col items-center gap-4 text-center">
-            <Logo dimension={100} className="" />
+            <Logo dimension={100} />
             <div className="container flex flex-col items-center text-center w-full">
               <BigHeader> {title} </BigHeader>
             </div>

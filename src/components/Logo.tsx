@@ -3,7 +3,7 @@ import Image from "next/image";
 
 type Props = {
     dimension: number;
-    className: string;
+    className?: string;
 }
 
 export default function Logo({dimension, className}: Props){

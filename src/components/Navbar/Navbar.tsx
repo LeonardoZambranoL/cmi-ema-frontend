@@ -22,7 +22,7 @@ function Navbar() {
         <div className="flex flex-row gap-10">
           <Link href="/" className="flex flex-row gap-3">
             <div>
-              <Logo dimension={35} className="" />
+              <Logo dimension={35} />
             </div>
             <div>
               <span className="text-2xl font-bold">CMI</span>
