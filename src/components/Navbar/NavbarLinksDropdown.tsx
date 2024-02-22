@@ -3,6 +3,8 @@ import NavbarSection from "./NavbarSection";
 import { DropdownMenuItem, DropdownMenuSeparator } from "../ui/dropdown-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOut } from "@fortawesome/free-solid-svg-icons/faSignOut";
+import Providers from "@/app/providers";
+import ThemeSwitcher from "../Themes/ThemeSwitcher";
 
 type Props = {
   className: string;
@@ -45,6 +47,16 @@ const NavbarLinks = ({ className }: Props) => {
           href="/contact"
           className={className}
         ></NavbarSection>
+      </DropdownMenuItem>
+      <DropdownMenuSeparator />
+      <DropdownMenuItem asChild className="flex flex-row justify-start">
+        <div className="align-middle font-semibold">
+          <Providers>
+            <div className="flex flex-row gap-2">
+              <ThemeSwitcher text="Tema" />
+            </div>
+          </Providers>
+        </div>
       </DropdownMenuItem>
       <DropdownMenuSeparator />
       <DropdownMenuItem asChild>

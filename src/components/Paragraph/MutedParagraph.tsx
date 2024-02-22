@@ -6,7 +6,7 @@ type Props = {
 
 export default function MutedParagraph({ children }: Props) {
   return (
-    <span className="text-sm md:text-lg lg:text-xl text-muted-foreground">
+    <span className="text-sm md:text-lg lg:text-xl text-muted-foreground whitespace-pre-line">
       {children}
     </span>
   );

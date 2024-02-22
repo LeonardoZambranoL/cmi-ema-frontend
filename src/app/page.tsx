@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function Home() {
   const title = "Competencia de Matemáticas\nIntercolegial CMI 2024";
   const paragraph =
-    "¡Bienvenidos a la Competencia Matemática Intercolegial CMI 2024! Este año, nuestra edición anual se enorgullece de acoger a un mayor número de países, colegios y participantes.";
+    "¡Bienvenidos a la Competencia de Matemáticas Intercolegial CMI 2024!\nEste año, nuestra edición anual se enorgullece de acoger a un mayor número de países, colegios y participantes.";
 
   const inscribete = (
     <TwoLinkButtons
