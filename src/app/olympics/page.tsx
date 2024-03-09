@@ -17,12 +17,12 @@ export default function Page() {
                 <div className="flex flex-wrap gap-10 mt-4 justify-center max-w-screen">
                   <ThumbnailCard
                     title="CMI PRIMERA EDICIÓN"
-                    imageSrc="/fondo.png"
+                    imageSrc="/fondo2.png"
                     link="/olympics/CMI1"
                   ></ThumbnailCard>
                   <ThumbnailCard
                     title="CMI SEGUNDA EDICIÓN"
-                    imageSrc="/fondo2.png"
+                    imageSrc="/fondo.png"
                     link="/olympics/CMI2"
                   ></ThumbnailCard>
                 </div>
