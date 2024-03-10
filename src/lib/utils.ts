@@ -1,7 +1,21 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { FAQType, CountryType, RessourceType } from "@/types";
+import { FAQType, CountryType, RessourceType, SingUpFormType } from "@/types";
 import { link } from "fs";
+import axios from "axios";
+import { beAdress } from "@/static";
+
+
+export async function getCountries(){
+  const countries = await axios.get(`${beAdress}/countries`).then(response => response.data).catch((error) => {console.error("Error fetching countries" + error);});;
+  return countries;
+}
+
+export async function getSchools(){
+  const schools = await axios.get(`${beAdress}/schools`).then(response => response.data).catch((error) => {console.error("Error fetching countries" + error);});;
+  return schools;
+}
+
 
 
 export function cn(...inputs: ClassValue[]) {
@@ -64,57 +78,6 @@ export function getFAQ(){
   ];
 
   return faqs;
-}
-
-
-
-export function getCountries(){
-  const countries: CountryType[] = [
-    { id: "1", name: "Ecuador" },
-    { id: "2", name: "República Dominicana" },
-    { id: "3", name: "Panamá" },
-    { id: "4", name: "Venezuela" }
-  ];
-  return countries;
-}
-
-export function getSchoolByBountry(country: string){
-  if (!country){
-    return [];
-  }
-  const schoolCountriesMap = {
-    "1":[
-      { id: "1", name:"IPAC"}, 
-      { id: "2", name:"Americano"}, 
-      { id: "3", name:"Liceo"}, 
-      { id: "4", name:"Espiritu Santo"},
-    ], 
-    "2":[
-      { id: "5", name:"República 1"}, 
-      { id: "6", name:"República 2"}, 
-      { id: "7", name:"República 3"}, 
-      { id: "8", name:"República 4"},
-    ], 
-    "3":[
-      { id: "9", name:"Panamá 1"}, 
-      { id: "10", name:"Panamá 2"}, 
-      { id: "11", name:"Panamá 3"}, 
-      { id: "12", name:"Panamá 4"},
-    ], 
-    "4":[
-      { id: "13", name:"Venezuela 1"}, 
-      { id: "14", name:"Venezuela 2"}, 
-      { id: "15", name:"Venezuela 3"}, 
-      { id: "16", name:"Venezuela 4"},
-    ]
-    };
-    switch (country){
-      case "1": return schoolCountriesMap["1"];
-      case "2" : return schoolCountriesMap["2"];
-      case "3": return schoolCountriesMap["3"];
-      case "4": return schoolCountriesMap["4"];
-    }
-    return [];
 }
 
 export function getWebRessources(){

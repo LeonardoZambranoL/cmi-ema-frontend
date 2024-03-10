@@ -11,15 +11,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import VoidPrimaryButton from "../Buttons/VoidPrimaryButton";
-import { getCountries, getSchoolByBountry } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
-import { CountryType, SchoolType } from "@/types";
+import { CountryType, SchoolType, SingUpFormType } from "@/types";
 import axios from "axios";
-import { SingUpFormType } from "./types";
 import Logo from "../Logo";
 import BigHeader from "../Headers/BigHeader";
 
-const countries = getCountries();
 const schoolNotListedItemText = "Mi colegio no está en la lista";
 const schoolNotListedItemValue = "newSchool";
 const postRegistrationHeaderContent = "Revisa tu correo!";
@@ -37,72 +34,70 @@ const afterAllPage = (
   </div>
 );
 
-const validate = (values: SingUpFormType) => {
-  const errors: SingUpFormType = {};
+type Props = {
+  countries: CountryType[];
+  schools: SchoolType[];
+};
 
-  if (!values.firstName) {
-    errors.firstName = "Necesario";
-  } else if (values.firstName.length > 15) {
-    errors.firstName = "No más de 15 caracteres";
-  }
+export default function SignupForm({ countries, schools }: Props) {
+  const countryIds = countries.map((country) => country.id);
+  const validate = (values: SingUpFormType) => {
+    const errors: SingUpFormType = {};
 
-  if (!values.lastName) {
-    errors.lastName = "Necesario";
-  } else if (values.lastName.length > 20) {
-    errors.lastName = "No más de 15 caracteres";
-  }
+    if (!values.firstName) {
+      errors.firstName = "Necesario";
+    } else if (values.firstName.length > 15) {
+      errors.firstName = "No más de 15 caracteres";
+    }
 
-  if (!values.email) {
-    errors.email = "Necesario";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "El email no es valido";
-  }
+    if (!values.lastName) {
+      errors.lastName = "Necesario";
+    } else if (values.lastName.length > 20) {
+      errors.lastName = "No más de 15 caracteres";
+    }
 
-  if (!values.country) {
-    errors.country = "Necesario";
-  } else if (Object.keys(countries).includes(values.country)) {
-    const schools = Object.values(getSchoolByBountry(values.country));
-    const schoolIds = schools.map((school) => school.id);
-    const schoolNames = schools.map((school) => school.name);
-    if (!values.school) {
-      errors.school = "Necesario";
-    } else if (values.school == schoolNotListedItemValue) {
-      if (!values.newSchool) {
-        errors.newSchool = "Necesario";
-      } else {
-        if (schoolNames.includes(values.newSchool)) {
-          errors.newSchool = "El colegio si está en la lista";
-        }
-        if (values.newSchool.length < 3) {
-          errors.newSchool = "Invalido";
+    if (!values.email) {
+      errors.email = "Necesario";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = "El email no es valido";
+    }
+
+    if (!values.country) {
+      errors.country = "Necesario";
+    } else if (countryIds.includes(values.country)) {
+      if (!values.school) {
+        errors.school = "Necesario";
+      } else if (values.school == schoolNotListedItemValue) {
+        if (!values.newSchool) {
+          errors.newSchool = "Necesario";
+        } else {
+          if (values.newSchool.length < 3) {
+            errors.newSchool = "Respuesta invalida";
+          }
         }
       }
     } else {
-      if (!schoolIds.includes(values.school)) {
-        errors.newSchool = "wtf";
+      errors.country = "wtf";
+    }
+
+    if (!values.birth) {
+      errors.birth = "Necesario";
+    } else {
+      const birth = new Date(values.birth);
+      if (isNaN(birth.getTime())) {
+        errors.birth = "Fecha invalida";
+      }
+      const currentDate = new Date();
+      currentDate.setFullYear(2020);
+      if (birth >= currentDate) {
+        errors.birth = "Fecha invalida";
       }
     }
-  } else {
-    errors.country = "wtf";
-  }
-
-  if (!values.birth) {
-    errors.birth = "Necesario";
-  } else {
-    const birth = new Date(values.birth);
-    if (isNaN(birth.getTime())) {
-      errors.birth = "Fecha invalida";
-    }
-    const currentDate = new Date();
-    currentDate.setFullYear(2020);
-    if (birth >= currentDate) {
-      errors.birth = "Fecha invalida";
-    }
-  }
-  return errors;
-};
-
-export default function SignupForm() {
+    console.log(errors);
+    return errors;
+  };
   const [done, setDone] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -123,13 +118,9 @@ export default function SignupForm() {
 
     validate,
 
-    onSubmit: (values) => {
-      axios
-        .post("http://127.0.0.1:8000/test", values)
-        .then(function (response) {
-          console.log(response);
-        });
-      setDone(true);
+    onSubmit: async (values) => {
+      const base_url = window.location.origin;
+      await axios.post(`${base_url}/api/students/create`, values);
     },
 
     validateOnChange: false,
@@ -228,13 +219,13 @@ export default function SignupForm() {
           <SelectValue placeholder="Colegio" />
         </SelectTrigger>
         <SelectContent>
-          {getSchoolByBountry(formik.values.country).map(
-            (school: SchoolType, index: number) => (
+          {schools
+            .filter((school) => school.country_id == formik.values.country)
+            .map((school: SchoolType, index: number) => (
               <SelectItem key={index} value={school.id}>
                 {school.name}
               </SelectItem>
-            )
-          )}
+            ))}
           <Separator className="my-1" />
           <SelectItem key={-1} value={schoolNotListedItemValue}>
             {schoolNotListedItemText}

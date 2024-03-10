@@ -11,6 +11,7 @@ export type CountryType = {
 export type SchoolType = {
     id: string;
     name: string;
+    country_id: string;
 }
 
 export type RessourceType = {
@@ -19,4 +20,14 @@ export type RessourceType = {
     content: string;
     link: string;
     free: boolean;
+}
+
+export type SingUpFormType = {
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    country?: string;
+    school?: string;
+    newSchool?: string;
+    birth?: string;
 }
